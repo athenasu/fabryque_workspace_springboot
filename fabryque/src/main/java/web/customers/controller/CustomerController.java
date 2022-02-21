@@ -3,6 +3,7 @@ package web.customers.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import web.customers.service.CustomerService;
 
 @RestController
 @RequestMapping("customer")
+@CrossOrigin("http://localhost:3000")
 public class CustomerController {
 
 	@Autowired
@@ -26,7 +28,7 @@ public class CustomerController {
 		return customers;
 	}
 
-	@DeleteMapping("deleteCustomers")
+	@DeleteMapping("deleteCustomer")
 	public Core delete(@RequestBody Customer customer, Core core) {
 		return service.delete(core, customer);
 	}
